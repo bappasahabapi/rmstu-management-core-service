@@ -3,8 +3,12 @@ This guide will walk you through the process of setting up the RMSTU Management 
 
 #### 🪸 Branches
 
--   00 👉 [main](https://github.com/bappasahabapi/rmstu-management-core-service.git)
+
+-   03 👉 [academic-semester-crud](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/c1/03/academic-semester-crud)
 -   01 👉 [rmstu/c1/start](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/c1/start)
+-   00 👉 [main](https://github.com/bappasahabapi/rmstu-management-core-service.git)
+
+
 
 ![My Image](er-diagram.png)
 
