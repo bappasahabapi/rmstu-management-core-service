@@ -1,6 +1,11 @@
 # RMSTU Management Core Service
 This guide will walk you through the process of setting up the RMSTU Management Core Service Starter project. By following these steps, you will clone the project, install dependencies, and configure Prisma for database management. Let's get started!
 
+#### 🪸 Branches
+
+-   00 👉 [main](https://github.com/bappasahabapi/rmstu-management-core-service.git)
+-   01 👉 [rmstu/c1/start](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/c1/start)
+
 
 ## Installation Steps
 ---
