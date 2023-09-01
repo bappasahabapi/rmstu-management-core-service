@@ -9,7 +9,7 @@ This guide will walk you through the process of setting up the RMSTU Management 
 1. **Clone the project:** Open your terminal or command prompt and run the following command to clone the project repository:
 
 ```bash
-
+https://github.com/bappasahabapi/rmstu-management-core-service.git
 ```
 
 2. **Navigate into the project directory:**  Use the cd command to navigate into the project directory:
