@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/Users/bappasaha/Desktop/dektop/files/Chapter-6/rmstu-management-core-service-starter/logs/winston/successes/.91e6db875022f9b3a3cff705eb20f90ce2bcafcb-audit.json",
+    "files": [
+        {
+            "date": 1693559353380,
+            "name": "/Users/bappasaha/Desktop/dektop/files/Chapter-6/rmstu-management-core-service-starter/logs/winston/successes/rmstu-2023-01-09-15-success.log",
+            "hash": "f829c30034f74993848928194ee8b884cc5601fde590194c005a96f32aeea171"
+        }
+    ],
+    "hashType": "sha256"
+}
