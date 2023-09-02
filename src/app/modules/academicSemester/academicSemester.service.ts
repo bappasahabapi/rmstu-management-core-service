@@ -1,6 +1,7 @@
 import { AcademicSemester, PrismaClient } from "@prisma/client";
 import { IGenericResponse } from "../../../interfaces/common";
 import { paginationHelpers } from "../../../helpers/paginationHelper";
+import { IPaginationOptions } from "../../../interfaces/pagination";
 
 
 
@@ -13,7 +14,7 @@ const insertInDB=async (academicSemesterData:AcademicSemester):Promise<AcademicS
     return result;
 };
 
-const getAllFromDB =async(filters,options):Promise<IGenericResponse<AcademicSemester[]>> =>{
+const getAllFromDB =async(filters,options:IPaginationOptions):Promise<IGenericResponse<AcademicSemester[]>> =>{
 
     //todo: for pagination
     const {page,limit,skip}=paginationHelpers.calculatePagination(options);
