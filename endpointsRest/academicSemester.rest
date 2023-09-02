@@ -19,20 +19,17 @@ Content-Type: application/json
 
 {
     "year": 2023,
-    "title": "Autum",
-    "code": "01",
+    "title": "Summer",
+    "code": "02",
     "startMonth": "January",
     "endMonth": "April"
 }
 
-
-
-
-### Get 
-GET http://localhost:5001/api/v1/academic-semester
+### Get All Academic Semesters
+GET http://localhost:5001/api/v1/academic-semesters
 Content-Type: application/json
 
 
-### Get single user by id
-GET http://localhost:3004/api/v1/user/7 
-Content-Type: application/json
+# ### Get single user by id
+# GET http://localhost:3004/api/v1/user/7 
+# Content-Type: application/json
