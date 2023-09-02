@@ -23,14 +23,14 @@ const getAllFromDB = catchAsync(async (req: Request, res: Response) => {
     //todo: keep the filterable data in one variable
     console.log(req.query);
     const filters=pick(req.query,['searchTerm','code','year']);
-    const options =pick(req.query,['limit', 'page','sortBy','sortOrder']);
-    
+    const options =pick(req.query,['limit', 'page','sortBy','sortOrder']); //paginations value
+
     console.log("filters",filters);
     console.log("options",options);
 
 
 
-    const result = await AcademicSemesterService.getAllFromDB();
+    const result = await AcademicSemesterService.getAllFromDB(filters,options);
     sendResponse(res, {
         statusCode: httpStatus.OK,
         success: true,
