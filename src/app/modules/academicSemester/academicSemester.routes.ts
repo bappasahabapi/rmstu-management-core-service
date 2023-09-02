@@ -10,7 +10,10 @@ const router = express.Router();
 router.post(
     '/',
     validateRequest(AcademicSemesterValidation.create), 
-    AcademicSemesterController.insertInDB);
+    AcademicSemesterController.insertInDB
+);
+
+router.get('/',AcademicSemesterController.getAllFromDB)
 
 
 export const AcademicSemesterRoutes = router;
