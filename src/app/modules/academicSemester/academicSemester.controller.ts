@@ -1,11 +1,11 @@
-import { NextFunction, Request, Response } from "express";
+import {Request, Response } from "express";
 import { AcademicSemesterService } from "./academicSemester.service";
 import sendResponse from "../../../shared/sendResponse";
 import { AcademicSemester } from "@prisma/client";
 import httpStatus from "http-status";
+import catchAsync from "../../../shared/catchAsync";
 
-const insertInDB = async (req: Request, res: Response, next: NextFunction) => {
-    try {
+const insertInDB = catchAsync(async (req: Request, res: Response) => {
         const result = await AcademicSemesterService.insertInDB(req.body);
         sendResponse<AcademicSemester>(res,{
             statusCode:httpStatus.OK,
@@ -13,11 +13,8 @@ const insertInDB = async (req: Request, res: Response, next: NextFunction) => {
             message:"Academic Semester created successfully",
             data:result
         })
-    }
-    catch (error) {
-        next(error);
-    }
-}
+ 
+})
 
 export const  AcademicSemesterController ={
     insertInDB
