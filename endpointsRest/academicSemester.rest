@@ -30,6 +30,10 @@ GET http://localhost:5001/api/v1/academic-semesters
 Content-Type: application/json
 
 
-# ### Get single user by id
-# GET http://localhost:3004/api/v1/user/7 
-# Content-Type: application/json
+
+# for filter and pagination
+### Get All Academic Semesters
+GET http://localhost:5001/api/v1/academic-semesters?page=1&limit=2
+# GET http://localhost:5001/api/v1/academic-semesters?page=1&limit=10&searchTerm=fall&year=2023
+Content-Type: application/json
+
