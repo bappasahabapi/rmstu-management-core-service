@@ -1,0 +1,62 @@
+
+# First Run  the server `yarn start`
+# First Run  prisma studio  `npx prisma studio`
+
+
+# model AcademicDepartment {
+#   id        String   @id @default(uuid())
+#   title     String
+#   createdAt DateTime @default(now())
+#   updatedAt DateTime @default(now())
+
+#   academicFacultyId String
+#   academicFaculty   AcademicFaculty @relation(fields: [academicFacultyId], references: [id])
+#   students          Student[]
+#   faculties         Faculty[]
+
+#   @@map("academic_departments")
+# }
+ 
+
+### Create Academic Department
+POST http://localhost:5001/api/v1/academic-departments
+Content-Type: application/json
+
+{
+    "title":"Sociology Department",
+    "academicFacultyId":"8633641f-9556-4adb-8de5-b5e863a7a540"
+}
+
+### Get All Academic Departments
+GET http://localhost:5001/api/v1/academic-departments
+Content-Type: application/json
+
+
+
+#####################-------------##### for  pagination
+### Get All Academic Departments
+GET http://localhost:5001/api/v1/academic-departments?page=1&limit=2
+Content-Type: application/json
+
+
+##################-------------######## For filters
+### filters
+# GET http://localhost:5001/api/v1/academic-semesters?page=1&limit=10&searchTerm=fall&year=2023
+# GET http://localhost:5001/api/v1/academic-semesters?page=1&limit=10&searchTerm=fall&code=03
+
+# GET http://localhost:5001/api/v1/academic-semesters?page=1&limit=10&searchTerm=fall
+# GET http://localhost:5001/api/v1/academic-semesters?page=1&limit=2&searchTerm=02 
+# GET http://localhost:5001/api/v1/academic-semesters?page=1&limit=2&startMonth=January
+
+### sortig data
+# GET http://localhost:5001/api/v1/academic-semesters?page=1&limit=2
+# GET http://localhost:5001/api/v1/academic-semesters?page=1&limit=2&sortBy=title
+# GET http://localhost:5001/api/v1/academic-semesters?page=1&limit=2&sortBy=title&sortOrder=desc
+GET http://localhost:5001/api/v1/academic-semesters?page=1&limit=2&sortBy=title&sortOrder=asc
+Content-Type: application/json
+
+
+
+### Get single department by id
+GET http://localhost:5001/api/v1/academic-departments/1bd75dcf-53fd-4b08-9ce3-67a9bd649701
+Content-Type: application/json
