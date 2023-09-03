@@ -1,14 +1,11 @@
 import { AcademicSemester, Prisma, PrismaClient } from "@prisma/client";
-import { IGenericResponse } from "../../../interfaces/common";
 import { paginationHelpers } from "../../../helpers/paginationHelper";
+import { IGenericResponse } from "../../../interfaces/common";
 import { IPaginationOptions } from "../../../interfaces/pagination";
-import { IAcademicSemesterFilterRequest } from "./academicSemester.interface";
 import { AcademicSemesterSearchAbleFields } from "./academicSemester.consstants";
-
-
+import { IAcademicSemesterFilterRequest } from "./academicSemester.interface";
 
 const prisma = new PrismaClient();
-
 const insertInDB = async (academicSemesterData: AcademicSemester): Promise<AcademicSemester> => {
     const result = await prisma.academicSemester.create({
         data: academicSemesterData
@@ -26,6 +23,8 @@ const getAllFromDB = async (filters: IAcademicSemesterFilterRequest, options: IP
 
     const {searchTerm,...filterData}=filters;
 
+    // console.log(filterData)
+
 
     // push the search term in the and conditon
     const andConditions =[];
@@ -37,6 +36,18 @@ const getAllFromDB = async (filters: IAcademicSemesterFilterRequest, options: IP
                 [field]:{
                     contains:searchTerm,
                     mode:'insensitive'
+                }
+            }))
+        })
+    }
+
+    //todo: handle the ...filtersdata part
+
+    if(Object.keys(filters).length>0){
+        andConditions.push({
+            AND: Object.keys(filterData).map((key)=>({
+                [key]:{
+                    equals:(filterData as any )[key]
                 }
             }))
         })

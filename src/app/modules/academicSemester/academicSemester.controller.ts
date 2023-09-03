@@ -22,7 +22,7 @@ const getAllFromDB = catchAsync(async (req: Request, res: Response) => {
 
     //todo: keep the filterable data in one variable
     console.log(req.query);
-    const filters=pick(req.query,['searchTerm','code','year']);
+    const filters=pick(req.query,['searchTerm','code','startMonth','endMonth']);
     const options =pick(req.query,['limit', 'page','sortBy','sortOrder']); //paginations value
 
     console.log("filters",filters);
