@@ -4,6 +4,8 @@ import { AcademicFacultyService } from "./academicFaculty.service";
 import sendResponse from "../../../shared/sendResponse";
 import { AcademicFaculty } from "@prisma/client";
 import httpStatus from "http-status";
+import pick from "../../../shared/pick";
+import { academicFacultyFilterableFields } from "./academicFaculty.constants";
 
 
 const insertInDB =catchAsync(async(req:Request,res:Response) => {
@@ -16,7 +18,21 @@ const insertInDB =catchAsync(async(req:Request,res:Response) => {
     })
 });
 
+const getAllFromDB = catchAsync(async (req: Request, res: Response) => {
+    const filters = pick(req.query, academicFacultyFilterableFields);
+    const options = pick(req.query, ['limit', 'page', 'sortBy', 'sortOrder']);
+    const result = await AcademicFacultyService.getAllFromDB(filters, options);
+    sendResponse(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: 'AcademicFaculties fetched successfully',
+        meta: result.meta,
+        data: result.data
+    });
+});
+
 
 export const AcademicFacultyController ={
-    insertInDB
+    insertInDB,
+    getAllFromDB
 };
