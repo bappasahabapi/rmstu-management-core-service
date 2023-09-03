@@ -24,3 +24,12 @@ Content-Type: application/json
     "title": "Arts"
     
 }
+
+### Get All Academic Semesters
+GET http://localhost:5001/api/v1/academic-faculties
+Content-Type: application/json
+
+#######################---------------- for  pagination  -------------  #####
+### Get All Academic Faculties
+GET http://localhost:5001/api/v1/academic-faculties?page=1&limit=2
+Content-Type: application/json
