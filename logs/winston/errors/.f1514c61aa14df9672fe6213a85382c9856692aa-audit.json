@@ -6,9 +6,9 @@
     "auditLog": "/Users/bappasaha/Desktop/dektop/files/Chapter-6/rmstu-management-core-service-starter/logs/winston/errors/.f1514c61aa14df9672fe6213a85382c9856692aa-audit.json",
     "files": [
         {
-            "date": 1693559353381,
-            "name": "/Users/bappasaha/Desktop/dektop/files/Chapter-6/rmstu-management-core-service-starter/logs/winston/errors/rmstu-2023-01-09-15-error.log",
-            "hash": "d0f695cc4b9681f0c30cb30b6b9be8a6b7ad4bb1303a85a58e0c576e00909c9b"
+            "date": 1693755822503,
+            "name": "/Users/bappasaha/Desktop/dektop/files/Chapter-6/rmstu-management-core-service-starter/logs/winston/errors/rmstu-2023-03-09-21-error.log",
+            "hash": "323d9c219a551e9fb706a57bb2964be21a5497ffc6b2c554dc942fab70a423cc"
         }
     ],
     "hashType": "sha256"
