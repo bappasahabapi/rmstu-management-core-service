@@ -5,6 +5,7 @@ import catchAsync from "../../../shared/catchAsync";
 import pick from "../../../shared/pick";
 import sendResponse from "../../../shared/sendResponse";
 import { AcademicSemesterService } from "./academicSemester.service";
+import { AcademicSemesterFilterAbleFields } from "./academicSemester.constants";
 
 
 const insertInDB = catchAsync(async (req: Request, res: Response) => {
@@ -21,12 +22,14 @@ const insertInDB = catchAsync(async (req: Request, res: Response) => {
 const getAllFromDB = catchAsync(async (req: Request, res: Response) => {
 
     //todo: keep the filterable data in one variable
-    console.log(req.query);
-    const filters=pick(req.query,['searchTerm','code','startMonth','endMonth']);
+    // console.log(req.query);
+
+    // const filters=pick(req.query,['searchTerm','code','startMonth','endMonth']);
+    const filters=pick(req.query,AcademicSemesterFilterAbleFields);
     const options =pick(req.query,['limit', 'page','sortBy','sortOrder']); //paginations value
 
-    console.log("filters",filters);
-    console.log("options",options);
+    // console.log("filters",filters);
+    // console.log("options",options);
 
 
 
@@ -40,7 +43,21 @@ const getAllFromDB = catchAsync(async (req: Request, res: Response) => {
     })
 });
 
+
+const getDataById = catchAsync(async (req: Request, res: Response) => {
+    const result = await AcademicSemesterService.getDataById(req.params.id);
+    console.log("id:",req.params.id)
+    sendResponse<AcademicSemester>(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: "Academic Semester data fetched successfully",
+        data: result
+    })
+
+});
+
 export const AcademicSemesterController = {
     insertInDB,
-    getAllFromDB
+    getAllFromDB,
+    getDataById
 }

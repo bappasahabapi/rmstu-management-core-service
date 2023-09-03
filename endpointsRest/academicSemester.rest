@@ -18,9 +18,9 @@ POST http://localhost:5001/api/v1/academic-semesters
 Content-Type: application/json
 
 {
-    "year": 2023,
-    "title": "Summer",
-    "code": "02",
+    "year": 2024,
+    "title": "Fall",
+    "code": "03",
     "startMonth": "January",
     "endMonth": "April"
 }
@@ -31,9 +31,30 @@ Content-Type: application/json
 
 
 
-# for filter and pagination
+#####################-------------##### for  pagination
 ### Get All Academic Semesters
 GET http://localhost:5001/api/v1/academic-semesters?page=1&limit=2
-# GET http://localhost:5001/api/v1/academic-semesters?page=1&limit=10&searchTerm=fall&year=2023
 Content-Type: application/json
 
+
+##################-------------######## For filters
+### filters
+# GET http://localhost:5001/api/v1/academic-semesters?page=1&limit=10&searchTerm=fall&year=2023
+# GET http://localhost:5001/api/v1/academic-semesters?page=1&limit=10&searchTerm=fall&code=03
+
+# GET http://localhost:5001/api/v1/academic-semesters?page=1&limit=10&searchTerm=fall
+# GET http://localhost:5001/api/v1/academic-semesters?page=1&limit=2&searchTerm=02 
+# GET http://localhost:5001/api/v1/academic-semesters?page=1&limit=2&startMonth=January
+
+### sortig data
+# GET http://localhost:5001/api/v1/academic-semesters?page=1&limit=2
+# GET http://localhost:5001/api/v1/academic-semesters?page=1&limit=2&sortBy=title
+# GET http://localhost:5001/api/v1/academic-semesters?page=1&limit=2&sortBy=title&sortOrder=desc
+GET http://localhost:5001/api/v1/academic-semesters?page=1&limit=2&sortBy=title&sortOrder=asc
+Content-Type: application/json
+
+
+
+### Get single semester by id
+GET http://localhost:5001/api/v1/academic-semesters/189e2dce-073d-4a4b-ac31-2d99f8b70a28
+Content-Type: application/json

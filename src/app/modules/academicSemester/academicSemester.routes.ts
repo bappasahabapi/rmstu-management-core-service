@@ -13,7 +13,8 @@ router.post(
     AcademicSemesterController.insertInDB
 );
 
-router.get('/',AcademicSemesterController.getAllFromDB)
+router.get('/',AcademicSemesterController.getAllFromDB);
+router.get('/:id',AcademicSemesterController.getDataById);
 
 
 export const AcademicSemesterRoutes = router;

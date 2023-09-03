@@ -1,11 +1,12 @@
-import { AcademicSemester, Prisma, PrismaClient } from "@prisma/client";
+import { AcademicSemester, Prisma} from "@prisma/client";
 import { paginationHelpers } from "../../../helpers/paginationHelper";
 import { IGenericResponse } from "../../../interfaces/common";
 import { IPaginationOptions } from "../../../interfaces/pagination";
-import { AcademicSemesterSearchAbleFields } from "./academicSemester.consstants";
+import { AcademicSemesterSearchAbleFields } from "./academicSemester.constants";
 import { IAcademicSemesterFilterRequest } from "./academicSemester.interface";
+import prisma from "../../../shared/prisma";
 
-const prisma = new PrismaClient();
+// const prisma = new PrismaClient();
 const insertInDB = async (academicSemesterData: AcademicSemester): Promise<AcademicSemester> => {
     const result = await prisma.academicSemester.create({
         data: academicSemesterData
@@ -79,7 +80,17 @@ const getAllFromDB = async (filters: IAcademicSemesterFilterRequest, options: IP
     }
 }
 
+const getDataById =async(id:string):Promise<AcademicSemester | null> => {
+    const result = await prisma.academicSemester.findUnique({
+        where:{
+            id
+        }
+    });
+    return result;
+}
+
 export const AcademicSemesterService = {
     insertInDB,
-    getAllFromDB
+    getAllFromDB,
+    getDataById
 }
