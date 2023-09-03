@@ -7,7 +7,6 @@ import { paginationHelpers } from "../../../helpers/paginationHelper";
 import { academicFacultySearchableFields } from "./academicFaculty.constants";
 
 
-
 const insertInDB = async (data: AcademicFaculty): Promise<AcademicFaculty> => {
     const result = await prisma.academicFaculty.create({
         data
@@ -77,8 +76,19 @@ const getAllFromDB = async (
 
 };
 
+const getByIdFromDB = async (id: string): Promise<AcademicFaculty | null> => {
+    const result = await prisma.academicFaculty.findUnique({
+        where: {
+            id
+        }
+    });
+    return result;
+};
+
+
 
 export const AcademicFacultyService = {
     insertInDB,
-    getAllFromDB
+    getAllFromDB,
+    getByIdFromDB
 }

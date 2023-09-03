@@ -12,7 +12,8 @@ router.post(
     AcademicFacultyController.insertInDB
     );
 
-router.get('/',AcademicFacultyController.getAllFromDB)
+router.get('/',AcademicFacultyController.getAllFromDB);
+router.get('/:id', AcademicFacultyController.getByIdFromDB);
 
 
 export const AcademicFacultyRoutes=router;

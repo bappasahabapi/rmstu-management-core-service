@@ -33,3 +33,8 @@ Content-Type: application/json
 ### Get All Academic Faculties
 GET http://localhost:5001/api/v1/academic-faculties?page=1&limit=2
 Content-Type: application/json
+
+
+### Get single semester by id
+GET http://localhost:5001/api/v1/academic-faculties/c053bd3b-8133-425c-aef3-090e21a0c37f
+Content-Type: application/json
