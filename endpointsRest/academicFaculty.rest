@@ -1,0 +1,26 @@
+
+# First Run  the server `yarn start`
+# First Run  prisma studio  `npx prisma studio`
+
+
+# model AcademicFaculty {
+#   id                  String               @id @default(uuid())
+#   title               String
+#   createdAt           DateTime             @default(now())
+#   updatedAt           DateTime             @default(now())
+#   academicDepartments AcademicDepartment[]
+#   students            Student[]
+#   faculties           Faculty[]
+
+#   @@map("academic_faculties")
+# }
+ 
+
+### Create Academic Faculty
+POST http://localhost:5001/api/v1/academic-faculties
+Content-Type: application/json
+
+{
+    "title": "Arts"
+    
+}
