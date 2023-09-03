@@ -22,11 +22,11 @@ const getAllFromDB = async (filters: IAcademicSemesterFilterRequest, options: IP
     // console.log(filters) --> { searchTerm: 'fall', code: '03' }
 
     const {searchTerm,...filterData}=filters;
-
+    console.log(options)
     // console.log(filterData)
 
 
-    // push the search term in the and conditon
+    //todo: push the search term in the and conditon
     const andConditions =[];
 
     if(searchTerm){
@@ -42,7 +42,6 @@ const getAllFromDB = async (filters: IAcademicSemesterFilterRequest, options: IP
     }
 
     //todo: handle the ...filtersdata part
-
     if(Object.keys(filters).length>0){
         andConditions.push({
             AND: Object.keys(filterData).map((key)=>({
@@ -57,30 +56,17 @@ const getAllFromDB = async (filters: IAcademicSemesterFilterRequest, options: IP
     andConditions.length>0 ?{AND:andConditions} : {};
 
     const result = await prisma.academicSemester.findMany({
-
-        // where:{
-        //     OR:[
-        //         {
-        //             title:{
-        //                 contains:searchTerm,
-        //                 mode:'insensitive'
-        //             }
-        //         },
-        //         {
-        //             code:{
-        //                 contains:searchTerm,
-        //                 mode:'insensitive'
-        //             }
-        //         },  
-               
-        //     ]
-            
-        // },
-
         where: whereConditions,
-
         skip,
-        take: limit
+        take: limit,
+        orderBy:options.sortBy && options.sortOrder 
+        ? {
+            [options.sortBy]:options.sortOrder
+         }
+         :{
+            createdAt:'desc'
+         }
+        
     });
     const total = await prisma.academicSemester.count();
     return {
