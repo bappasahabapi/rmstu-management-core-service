@@ -52,10 +52,23 @@ const updateOneInDB = catchAsync(async (req: Request, res: Response) => {
     });
 });
 
+const deleteByIdFromDB = catchAsync(async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const result = await AcademicDepartmentService.deleteByIdFromDB(id);
+    sendResponse(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: 'Academic Department delete successfully',
+        data: result
+    });
+});
+
+
 
 export const AcademicDepartmentController = {
     insertIntoDB,
     getAllFromDB,
     getByIdFromDB,
-    updateOneInDB
+    updateOneInDB,
+    deleteByIdFromDB
 };

@@ -15,6 +15,12 @@ router.post(
     AcademicDepartmentController.insertIntoDB
 );
 
+router.delete(
+    '/:id',
+    AcademicDepartmentController.deleteByIdFromDB
+);
+
+
 router.patch(
     '/:id',
     validateRequest(AcademicDepartmentValidation.update),
