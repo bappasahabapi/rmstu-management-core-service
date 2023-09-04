@@ -15,5 +15,16 @@ router.post(
 router.get('/',AcademicFacultyController.getAllFromDB);
 router.get('/:id', AcademicFacultyController.getByIdFromDB);
 
+router.patch(
+    '/:id',
+    validateRequest(AcademicFacultyValidation.update),
+    AcademicFacultyController.updateOneInDB
+);
+
+router.delete(
+    '/:id',
+    AcademicFacultyController.deleteByIdFromDB
+);
+
 
 export const AcademicFacultyRoutes=router;
