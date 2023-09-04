@@ -15,5 +15,11 @@ router.post(
     AcademicDepartmentController.insertIntoDB
 );
 
+router.patch(
+    '/:id',
+    validateRequest(AcademicDepartmentValidation.update),
+    AcademicDepartmentController.updateOneInDB
+);
+
 
 export const academicDepartmentRoutes = router;
