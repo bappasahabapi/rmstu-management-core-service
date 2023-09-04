@@ -16,5 +16,16 @@ router.post(
 router.get('/',AcademicSemesterController.getAllFromDB);
 router.get('/:id',AcademicSemesterController.getDataById);
 
+router.patch(
+    '/:id',
+    validateRequest(AcademicSemesterValidation.update),
+    AcademicSemesterController.updateOneInDB
+);
+
+router.delete(
+    '/:id',
+    AcademicSemesterController.deleteByIdFromDB
+);
+
 
 export const AcademicSemesterRoutes = router;
