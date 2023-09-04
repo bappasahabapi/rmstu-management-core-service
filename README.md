@@ -8,8 +8,9 @@ This guide will walk you through the process of setting up the RMSTU Management 
 #### 🪸 Branches
 
 
--   07 👉 [academic-department-crud](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/c1/07/student-crud)
--   06 👉 [academic-department-crud](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/c1/06/faculty-crud)
+-   08 👉 [Final C-1](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/c1/08m35)
+-   07 👉 [academic-student-crud](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/c1/07/student-crud)
+-   06 👉 [academic-faculty-crud](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/c1/06/faculty-crud)
 -   05 👉 [academic-department-crud](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/c1/05/academic-department-crud)
 -   04 👉 [academic-faculty-crud](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/c1/04/academic-faculty-crud)
 -   03 👉 [academic-semester-crud](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/c1/03/academic-semester-crud)
