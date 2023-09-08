@@ -7,6 +7,9 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
+//todo: after making any model(table) give the command in the terminal: npx prisma migrate dev
+
 model AcademicSemester {
   id         String    @id @default(uuid())
   year       Int
@@ -95,4 +98,26 @@ model Faculty {
   academicFaculty   AcademicFaculty @relation(fields: [academicFacultyId], references: [id])
 
   @@map("faculties")
+}
+
+model Building {
+  id        String   @id @default(uuid())
+  title     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  rooms     Room[]
+
+  @@map("buildings")
+}
+
+model Room {
+  id         String   @id @default(uuid())
+  roomNumber String
+  floor      String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  buildingId String
+  building   Building @relation(fields: [buildingId], references: [id])
+
+  @@map("rooms")
 }
