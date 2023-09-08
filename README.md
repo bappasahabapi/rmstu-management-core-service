@@ -9,6 +9,7 @@ This guide will walk you through the process of setting up the RMSTU Management 
 
 
 
+-   10 🐞 [Building & Room  ](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/c2/11/building-room) 
 -   10 🐞 [Access Token Permission role ](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/c2/10/add-AccessTokenPermission) 
 -   09 🐞 [Modify Code ](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/c2/09/modifyCode) 
 -   08 🔴 [𝐅𝐢𝐧𝐚𝐥 𝐂-𝟏](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/c1/08m35)
