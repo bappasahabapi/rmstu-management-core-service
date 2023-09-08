@@ -9,10 +9,12 @@ This guide will walk you through the process of setting up the RMSTU Management 
 
 
 
--   10 🐞 [Building & Room  ](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/c2/11/building-room) 
--   10 🐞 [Access Token Permission role ](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/c2/10/add-AccessTokenPermission) 
--   09 🐞 [Modify Code ](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/c2/09/modifyCode) 
--   08 🔴 [𝐅𝐢𝐧𝐚𝐥 𝐂-𝟏](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/c1/08m35)
+-   12 👉 [Course ](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/c2/12/course) 
+-   11 👉 [Building & Room  ](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/c2/11/building-room) 
+-   10 👉 [Access Token Permission role ](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/c2/10/add-AccessTokenPermission) 
+-   09 👉 [Modify Code ](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/c2/09/modifyCode) 
+--- 
+-   08 🐞[𝐅𝐢𝐧𝐚𝐥 𝐂-𝟏](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/c1/08m35)
 -   07 👉 [academic-student-crud](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/c1/07/student-crud)
 -   06 👉 [faculty-crud](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/c1/06/faculty-crud)
 -   05 👉 [academic-department-crud](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/c1/05/academic-department-crud)
@@ -21,7 +23,7 @@ This guide will walk you through the process of setting up the RMSTU Management 
 -   01 👉 [rmstu/c1/starter](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/c1/start)
 -   00 👉 [main](https://github.com/bappasahabapi/rmstu-management-core-service.git)
 
-
+👉
 
 ![My Image](er-diagram.png)
 ![My Image](c2.png)
