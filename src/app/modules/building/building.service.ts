@@ -6,17 +6,21 @@ import { IGenericResponse } from "../../../interfaces/common";
 import { paginationHelpers } from "../../../helpers/paginationHelper";
 import { buildingSearchableFields } from "./building.constants";
 
+
+
+
+// //TODO: without filtering and pagination 
+const getAllFromDB1= async ()=>{
+    const result =await prisma.building.findMany();
+    return result;
+};
+
+// -------  starts from here
+
 const insertIntoDB = async (data: Building): Promise<Building> => {
     const result = await prisma.building.create({
         data
     })
-    return result;
-}
-
-
-// //TODO: without filtering and pagination
-const getAllFromDB1= async ()=>{
-    const result =await prisma.building.findMany();
     return result;
 };
 
@@ -79,11 +83,42 @@ const getAllFromDB= async (
     };
 };
 
+const getByIdFromDB = async (id: string): Promise<Building | null> => {
+    const result = await prisma.building.findUnique({
+        where: {
+            id
+        }
+    });
+    return result;
+};
+
+const updateOneInDB = async (id: string, payload: Partial<Building>): Promise<Building> => {
+    const result = await prisma.building.update({
+        where: {
+            id
+        },
+        data: payload
+    });
+    return result;
+};
+
+const deleteByIdFromDB = async (id: string): Promise<Building> => {
+    const result = await prisma.building.delete({
+        where: {
+            id
+        }
+    });
+    return result;
+};
+
 
 
 export const BuildingService = {
     insertIntoDB,
     getAllFromDB1, //not used
-    getAllFromDB
+    getAllFromDB,
+    getByIdFromDB,
+    updateOneInDB,
+    deleteByIdFromDB
     
 }
