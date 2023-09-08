@@ -1,0 +1,3 @@
+### Get All students
+GET http://localhost:5001/api/v1/students
+Content-Type: application/json

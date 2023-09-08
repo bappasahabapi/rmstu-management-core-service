@@ -16,7 +16,7 @@ const myFormat = printf(({ level, message, label, timestamp }) => {
 
 const logger = createLogger({
   level: 'info',
-  format: combine(label({ label: 'RMSTU' }), timestamp(), myFormat),
+  format: combine(label({ label: '𝗥𝗠𝗦𝗧𝗨' }), timestamp(), myFormat),
   transports: [
     new transports.Console(),
     new DailyRotateFile({
