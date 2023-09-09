@@ -168,7 +168,7 @@ const getByIdFromDB = async (id: string): Promise<Course | null> => {
     return result;
 };
 
-
+// this part is critical and need to think twice
 const updateOneInDB = async (
     id: string,
     payload: ICourseCreateData
@@ -186,11 +186,14 @@ const updateOneInDB = async (
         if (!result) {
             throw new ApiError(httpStatus.BAD_REQUEST, "Unable to update course")
         }
+        
 
+        // here we have to check if preRequisteCourse data present or not 
         if (preRequisiteCourses && preRequisiteCourses.length > 0) {
             const deletePrerequisite = preRequisiteCourses.filter(
                 (coursePrerequisite) => coursePrerequisite.courseId && coursePrerequisite.isDeleted
             )
+            // console.log(deletePrerequisite) // jei gulo delete kore dibo
 
             const newPrerequisite = preRequisiteCourses.filter(
                 (coursePrerequisite) => coursePrerequisite.courseId && !coursePrerequisite.isDeleted
