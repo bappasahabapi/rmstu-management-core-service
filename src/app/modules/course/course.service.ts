@@ -1,4 +1,4 @@
-import { Course, Prisma } from "@prisma/client";
+import { Course, CourseFaculty, Prisma } from "@prisma/client";
 import httpStatus from "http-status";
 import ApiError from "../../../errors/ApiError";
 import { paginationHelpers } from "../../../helpers/paginationHelper";
@@ -186,7 +186,7 @@ const updateOneInDB = async (
         if (!result) {
             throw new ApiError(httpStatus.BAD_REQUEST, "Unable to update course")
         }
-        
+
 
         // here we have to check if preRequisteCourse data present or not 
         if (preRequisiteCourses && preRequisiteCourses.length > 0) {
@@ -276,6 +276,40 @@ const deleteByIdFromDB = async (id: string): Promise<Course> => {
     return result;
 };
 
+//todo: Assign faculties/teachers for specific course
+
+const assignFaculties = async (
+    id: string,
+    payload: string[]
+    // payload:{faculties:string[]}
+
+): Promise<CourseFaculty[]> => {
+    await prisma.courseFaculty.createMany({
+        // data:payload.faculties.map((facultyId)=>{
+        data: payload.map((facultyId) => ({
+            courseId: id,
+            facultyId: facultyId
+        }))
+    })
+
+    const assignFacultiesData = await prisma.courseFaculty.findMany({
+        where: {
+            courseId: id,
+        },
+        // course er data and faculty er data dekte chain/ populated korte chai tai
+        include: {
+            faculty: true
+        }
+    })
+
+    return assignFacultiesData;
+
+
+
+
+
+}
+
 
 
 export const CourseService = {
@@ -284,5 +318,6 @@ export const CourseService = {
     getByIdFromDB,
     updateOneInDB,
     deleteByIdFromDB,
+    assignFaculties
 }
 
