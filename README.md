@@ -8,6 +8,7 @@ This guide will walk you through the process of setting up the RMSTU Management 
 #### 🪸 Branches
 
 
+-   15 👉 [Faculty assign for specific course](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/15/c3/assign-remove-course-from-faculty) 
 -   14 👉 [Faculty assign for specific course](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/14/c3/Assign-faculty) 
 ---
 -   13 🐞 [**Core-2**](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/13m36/core-2) 
