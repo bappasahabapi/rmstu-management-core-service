@@ -8,7 +8,7 @@ This guide will walk you through the process of setting up the RMSTU Management 
 #### 🪸 Branches
 
 
--   15 👉 [Semester Registration](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/16/c3/semester-registration) 
+-   16 👉 [Semester Registration](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/16/c3/semester-registration) 
 -   15 👉 [Course assign or remove for specific faculty](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/15/c3/assign-remove-course-from-faculty) 
 -   14 👉 [Faculty assign or remove for specific course](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/14/c3/Assign-faculty) 
 ---
