@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Prisma, SemesterRegistration, SemesterRegistrationStatus } from "@prisma/client";
 import httpStatus from "http-status";
 import ApiError from "../../../errors/ApiError";
@@ -17,7 +18,7 @@ const insertIntoDB =async(data:SemesterRegistration):Promise<SemesterRegistratio
                     status:SemesterRegistrationStatus.UPCOMING
                 },
                 {
-                    status:SemesterRegistrationStatus.ONGING
+                    status:SemesterRegistrationStatus.ONGOING
                 }
             ]
         }
@@ -131,9 +132,52 @@ const deleteByIdFromDB = async (id: string): Promise<SemesterRegistration> => {
     return result;
 };
 
+//handle the status : UPCOMING->ONGOING->ENDED [ONE DIRECTIONAL]
+
+
+const updateOneInDB = async (
+    id: string,
+    payload: Partial<SemesterRegistration>
+): Promise<SemesterRegistration> => {
+
+    console.log(payload.status);
+    
+    // check if the id exist or not
+    const isExist = await prisma.semesterRegistration.findUnique({
+        where: {
+            id
+        }
+    })
+
+    if (!isExist) {
+        throw new ApiError(httpStatus.BAD_REQUEST, "Data not found!")
+    }
+
+    if (payload.status && isExist.status === SemesterRegistrationStatus.UPCOMING && payload.status !== SemesterRegistrationStatus.ONGOING) {
+        throw new ApiError(httpStatus.BAD_REQUEST, "Can only move from UPCOMING to ONGOING")
+    }
+
+    if (payload.status && isExist.status === SemesterRegistrationStatus.ONGOING && payload.status !== SemesterRegistrationStatus.ENDED) {
+        throw new ApiError(httpStatus.BAD_REQUEST, "Can only move from ONGOING to ENDED")
+    }
+
+    const result = await prisma.semesterRegistration.update({
+        where: {
+            id
+        },
+        data: payload,
+        include: {
+            academicSemester: true
+        }
+    })
+
+    return result;
+}
+
 export const SemesterRegistrationService={
     insertIntoDB,
     getAllFromDB,
     getByIdFromDB,
-    deleteByIdFromDB
+    deleteByIdFromDB,
+    updateOneInDB
 }
