@@ -1,0 +1,20 @@
+
+## create semesterRegistration
+POST http://localhost:5001/api/v1/semester-registration
+Content-Type: application/json
+
+{
+    "startDate": "2023-07-01T00:00:00.00Z",
+    "endDate": "2023-07-15T00:00:00.00Z",
+    "minCredit": 3,
+    "maxCredit": 15,
+    "academicSemesterId": "6ca9b079-d07f-482a-a7f8-703f071c1cdf"
+}
+
+### Get All Registered Semesters
+GET http://localhost:5001/api/v1/semester-registration
+Content-Type: application/json
+
+### Get Single Registered  by id
+GET http://localhost:5001/api/v1/semester-registration/e209d340-50c7-4b62-afa0-cc654faf8693
+Content-Type: application/json
