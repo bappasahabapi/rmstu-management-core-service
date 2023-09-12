@@ -28,13 +28,17 @@ This guide will walk you through the process of setting up the RMSTU Management 
 -   00 👉 [main](https://github.com/bappasahabapi/rmstu-management-core-service.git)
 
 
-###    📊 Core-1
-![My Image](c1.png)
+
+
+###    📊 Core-3
+![My Image](c3.png)
 
 ###    📊 Core-2
 ![My Image](c2.png)
 
 
+###    📊 Core-1
+![My Image](c1.png)
 
 
 
