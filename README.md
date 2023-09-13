@@ -33,15 +33,18 @@ This guide will walk you through the process of setting up the RMSTU Management 
 
 
 
+###    📊 Core-4
+![My Image](./ER-Diagram/c4.png)
+
 ###    📊 Core-3
-![My Image](c3.png)
+![My Image](./ER-Diagram/c3.png)
 
 ###    📊 Core-2
-![My Image](c2.png)
+![My Image](./ER-Diagram/c2.png)
 
 
 ###    📊 Core-1
-![My Image](c1.png)
+![My Image](./ER-Diagram/c1.png)
 
 
 
