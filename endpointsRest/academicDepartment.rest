@@ -55,6 +55,10 @@ Content-Type: application/json
 GET http://localhost:5001/api/v1/academic-semesters?page=1&limit=2&sortBy=title&sortOrder=asc
 Content-Type: application/json
 
+### Get All
+GET http://localhost:5001/api/v1/academic-semesters
+Content-Type: application/json
+
 
 
 ### Get single department by id

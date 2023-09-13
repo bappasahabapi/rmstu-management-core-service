@@ -172,7 +172,7 @@ model SemesterRegistration {
   updatedAt          DateTime                    @updatedAt
   academicSemesterId String
   academicSemester   AcademicSemester            @relation(fields: [academicSemesterId], references: [id])
-  offeredCourses      OfferedCourse[]
+  offeredCourses     OfferedCourse[]
 
   @@map("semester_registrations")
 }
