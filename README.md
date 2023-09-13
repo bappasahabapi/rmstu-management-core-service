@@ -1,4 +1,4 @@
-# RMSTU Management Core Service
+# RMSTU Management Core Service [Micro-Service]
 This guide will walk you through the process of setting up the RMSTU Management Core Service Starter project. By following these steps, you will clone the project, install dependencies, and configure Prisma for database management. Let's get started man 😄!
 
 -    basic CRUD is done included filtering and pagination.
@@ -7,8 +7,9 @@ This guide will walk you through the process of setting up the RMSTU Management 
 
 #### 🪸 Branches
 
+-   18 ☘️ [**Handle Prisma Validation Erros**](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/18/c4/handle-prisma-error) 
 ---
--   17 🐞 [**Core-3**](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/17m37/core-3) 
+-   17 ☘️ [**Core-3**](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/17m37/core-3) 
 -   16 👉 [Semester Registration](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/16/c3/semester-registration) 
 -   15 👉 [Course assign or remove for specific faculty](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/15/c3/assign-remove-course-from-faculty) 
 -   14 👉 [Faculty assign or remove for specific course](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/14/c3/Assign-faculty) 
