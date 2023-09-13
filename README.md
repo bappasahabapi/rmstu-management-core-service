@@ -7,7 +7,8 @@ This guide will walk you through the process of setting up the RMSTU Management 
 
 #### 🪸 Branches
 
--   18 ☘️ [**Handle Prisma Validation Erros**](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/18/c4/handle-prisma-error) 
+-   19 👉 [**Offered Courses**](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/19/c4/offered-course) 
+-   18 👉 [**Handle Prisma Validation Erros**](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/18/c4/handle-prisma-error) 
 ---
 -   17 ☘️ [**Core-3**](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/17m37/core-3) 
 -   16 👉 [Semester Registration](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/16/c3/semester-registration) 
