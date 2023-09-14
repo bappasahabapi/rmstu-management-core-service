@@ -4,8 +4,8 @@ import { IGenericResponse } from "../../../interfaces/common";
 import { IPaginationOptions } from "../../../interfaces/pagination";
 import prisma from "../../../shared/prisma";
 import { asyncForEach } from "../../../shared/utils";
-import { offeredCourseRelationalFields, offeredCourseRelationalFieldsMapper, offeredCourseSearchableFields } from "./offeredCourses.constants";
-import { ICreateOfferedCourse, IOfferedCourseFilterRequest } from "./offeredCourses.interface";
+import { offeredCourseRelationalFields, offeredCourseRelationalFieldsMapper, offeredCourseSearchableFields } from "./offeredCourse.constants";
+import { ICreateOfferedCourse, IOfferedCourseFilterRequest } from "./offeredCourse.interface";
 
 const insertIntoDB = async (data: ICreateOfferedCourse): Promise<OfferedCourse[]> => {
     const { academicDepartmentId, semesterRegistrationId, courseIds } = data;

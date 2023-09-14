@@ -2,8 +2,8 @@ import express from 'express';
 import { ENUM_USER_ROLE } from '../../../enums/user';
 import auth from '../../middlewares/auth';
 import validateRequest from '../../middlewares/validateRequest';
-import { OfferedCourseController } from './offeredCourses.controller';
-import { OfferedCourseValidations } from './offeredCourses.validation';
+import { OfferedCourseController } from './offeredCourse.controller';
+import { OfferedCourseValidations } from './offeredCourse.validation';
 
 const router = express.Router();
 

@@ -3,8 +3,8 @@ import httpStatus from "http-status";
 import catchAsync from "../../../shared/catchAsync";
 import pick from "../../../shared/pick";
 import sendResponse from "../../../shared/sendResponse";
-import { offeredCourseFilterableFields } from "./offeredCourses.constants";
-import { offeredCourseService } from "./offeredCourses.service";
+import { offeredCourseFilterableFields } from "./offeredCourse.constants";
+import { offeredCourseService } from "./offeredCourse.service";
 
 
 /* {

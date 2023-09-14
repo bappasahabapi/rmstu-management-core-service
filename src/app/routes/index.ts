@@ -8,7 +8,7 @@ import { facultyRoutes } from '../modules/faculty/faculty.routes';
 import { roomRoutes } from '../modules/room/room.routes';
 import { semesterRegistrationRoutes } from '../modules/semesterRegistration/semesterRegistration.routes';
 import { studentRoutes } from '../modules/student/student.routes';
-import { offeredCourseRoutes } from '../modules/offeredCourses/offeredCourses.routes';
+import { offeredCourseRoutes } from '../modules/offeredCourse/offeredCourse.routes';
 
 const router = express.Router();
 
