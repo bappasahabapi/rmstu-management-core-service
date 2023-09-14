@@ -11,18 +11,18 @@ This guide will walk you through the process of setting up the RMSTU Management 
 -   19 👉 [Offered Course](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/19/c4/offered-course) 
 -   18 👉 [Handle Prisma Validation Erros](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/18/c4/handle-prisma-error) 
 ---
--   17 ☘️ [**Core-3**](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/17m37/core-3) 
+-   17 🌵 [**Core-3**](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/17m37/core-3) 
 -   16 👉 [Semester Registration](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/16/c3/semester-registration) 
 -   15 👉 [Course assign or remove for specific faculty](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/15/c3/assign-remove-course-from-faculty) 
 -   14 👉 [Faculty assign or remove for specific course](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/14/c3/Assign-faculty) 
 ---
--   13 🐞 [**Core-2**](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/13m36/core-2) 
+-   13 🌵 [**Core-2**](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/13m36/core-2) 
 -   12 👉 [Course ](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/c2/12/course) 
 -   11 👉 [Building & Room  ](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/c2/11/building-room) 
 -   10 👉 [Access Token Permission role ](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/c2/10/add-AccessTokenPermission) 
 -   09 👉 [Modify Code ](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/c2/09/modifyCode) 
 --- 
--   08 🐞[**Core-1**](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/c1/08m35)
+-   08 🌵 [**Core-1**](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/c1/08m35)
 -   07 👉 [academic-student-crud](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/c1/07/student-crud)
 -   06 👉 [faculty-crud](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/c1/06/faculty-crud)
 -   05 👉 [academic-department-crud](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/c1/05/academic-department-crud)
