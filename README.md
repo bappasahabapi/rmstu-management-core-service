@@ -7,8 +7,9 @@ This guide will walk you through the process of setting up the RMSTU Management 
 
 #### 🪸 Branches
 
--   19 👉 [**Offered Courses**](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/19/c4/offered-course) 
--   18 👉 [**Handle Prisma Validation Erros**](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/18/c4/handle-prisma-error) 
+-   20 👉 [Offered Course Section](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/20/c4/offered-course-section) 
+-   19 👉 [Offered Course](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/19/c4/offered-course) 
+-   18 👉 [Handle Prisma Validation Erros](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/18/c4/handle-prisma-error) 
 ---
 -   17 ☘️ [**Core-3**](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/17m37/core-3) 
 -   16 👉 [Semester Registration](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/16/c3/semester-registration) 
@@ -21,7 +22,7 @@ This guide will walk you through the process of setting up the RMSTU Management 
 -   10 👉 [Access Token Permission role ](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/c2/10/add-AccessTokenPermission) 
 -   09 👉 [Modify Code ](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/c2/09/modifyCode) 
 --- 
--   08 🐞[𝐅𝐢𝐧𝐚𝐥 𝐂-𝟏](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/c1/08m35)
+-   08 🐞[**Core-1**](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/c1/08m35)
 -   07 👉 [academic-student-crud](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/c1/07/student-crud)
 -   06 👉 [faculty-crud](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/c1/06/faculty-crud)
 -   05 👉 [academic-department-crud](https://github.com/bappasahabapi/rmstu-management-core-service/commits/rmstu/c1/05/academic-department-crud)
