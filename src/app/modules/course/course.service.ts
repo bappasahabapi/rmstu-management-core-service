@@ -22,7 +22,7 @@ import { ICourseCreateData, ICourseFilterRequest, IPrerequisiteCourseRequest } f
 //     return result
 // }
 
-console.log('first')
+// console.log('first')
 //todo:
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
