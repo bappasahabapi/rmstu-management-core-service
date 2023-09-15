@@ -8,6 +8,7 @@ This guide will walk you through the process of setting up the RMSTU Management 
 #### 🪸 Branches
 
 
+-   22 👍 [**Offered Course Class Schedule**](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/22/c5/offered-course-class-schedule) 
 ---
 -   21 🌵 [**Core-4**](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/21m38/core-4) 
 -   20 👉 [Offered Course Section](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/20/c4/offered-course-section) 
@@ -37,6 +38,8 @@ This guide will walk you through the process of setting up the RMSTU Management 
 
 
 
+###    📊 Core-5
+![My Image](./ER-Diagram/c5.png)
 ###    📊 Core-4
 ![My Image](./ER-Diagram/c4.png)
 
