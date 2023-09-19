@@ -13,6 +13,7 @@ const checkRoomAvailable = async (data: OfferedCourseClassSchedule) => {
             }
         }
     })
+    // console.log(alreadyBookedRoomOnDay) // result is in array
 
     const existingSlots = alreadyBookedRoomOnDay.map((schedule) => ({
         startTime: schedule.startTime,
@@ -20,7 +21,7 @@ const checkRoomAvailable = async (data: OfferedCourseClassSchedule) => {
         dayOfWeek: schedule.dayOfWeek
     }))
 
-
+    // console.log(data) // result is an object 
     const newSlot = {
         startTime: data.startTime,
         endTime: data.endTime,

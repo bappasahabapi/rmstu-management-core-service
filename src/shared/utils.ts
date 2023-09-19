@@ -29,7 +29,7 @@ export const hasTimeConflict = (
         const newEnd = new Date(`1970-01-01T${newSlot.endTime}:00`);
 
         if (newStart < existingEnd && newEnd > existingStart) {
-            return true
+            return true // means conflict korece
         }
     }
     return false;
