@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Prisma, SemesterRegistration, SemesterRegistrationStatus } from "@prisma/client";
+import { Prisma, SemesterRegistration, SemesterRegistrationStatus, StudentSemesterRegistration } from "@prisma/client";
 import httpStatus from "http-status";
 import ApiError from "../../../errors/ApiError";
 import prisma from "../../../shared/prisma";
@@ -172,6 +172,71 @@ const updateOneInDB = async (
     })
 
     return result;
+};
+
+//todo: ----------------- Start Registration is started ---------------------
+
+const startMyRegistration = async (authUserId: string): Promise<{
+    semesterRegistration: SemesterRegistration | null,
+    studentSemesterRegistration: StudentSemesterRegistration | null
+}> => {
+    const studentInfo = await prisma.student.findFirst({
+        where: {
+            studentId: authUserId
+        }
+    });
+    // console.log(studentInfo)
+    if (!studentInfo) {
+        throw new ApiError(httpStatus.BAD_REQUEST, "Student Info not found!")
+    }
+
+    const semesterRegistrationInfo = await prisma.semesterRegistration.findFirst({
+        where: {
+            status: {
+                in: [SemesterRegistrationStatus.ONGOING, SemesterRegistrationStatus.UPCOMING]
+            }
+        }
+    })
+    // console.log(semesterRegistrationInfo)
+
+    if (semesterRegistrationInfo?.status === SemesterRegistrationStatus.UPCOMING) {
+        throw new ApiError(httpStatus.BAD_REQUEST, "Registration is not started yet")
+    }
+
+    let studentRegistration = await prisma.studentSemesterRegistration.findFirst({
+        where: {
+            student: {
+                id: studentInfo?.id
+            },
+            semesterRegistration: {
+                id: semesterRegistrationInfo?.id
+            }
+        }
+    });
+    // console.log(studentRegistration)
+
+
+    if (!studentRegistration) {
+        studentRegistration = await prisma.studentSemesterRegistration.create({
+            data: {
+                student: {
+                    connect: {
+                        id: studentInfo?.id
+                    }
+                },
+                semesterRegistration: {
+                    connect: {
+                        id: semesterRegistrationInfo?.id
+                    }
+                }
+            }
+        })
+    }
+
+    return {
+        semesterRegistration: semesterRegistrationInfo,
+        studentSemesterRegistration: studentRegistration
+    }
 }
 
 export const SemesterRegistrationService={
@@ -179,5 +244,6 @@ export const SemesterRegistrationService={
     getAllFromDB,
     getByIdFromDB,
     deleteByIdFromDB,
-    updateOneInDB
+    updateOneInDB,
+    startMyRegistration
 }

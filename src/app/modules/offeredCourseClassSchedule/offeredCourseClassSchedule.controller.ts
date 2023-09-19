@@ -23,7 +23,7 @@ const getAllFromDB = catchAsync(async (req: Request, res: Response) => {
     sendResponse(res, {
         statusCode: httpStatus.OK,
         success: true,
-        message: 'OfferedCourse class schedule fetched successfully',
+        message: 'Offered Course class schedule fetched successfully',
         meta: result.meta,
         data: result.data
     });
