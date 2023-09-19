@@ -7,6 +7,8 @@ This guide will walk you through the process of setting up the RMSTU Management 
 
 #### 🪸 Branches
 
+---
+-   24 🌵 [**Core-5**](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/24m39/core-5) 
 -   23 👍 [**Student Semester Registration**](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/23/c5/student-semester-registration) 
 -   22 👍 [**Offered Course Class Schedule**](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/22/c5/offered-course-class-schedule) 
 ---
