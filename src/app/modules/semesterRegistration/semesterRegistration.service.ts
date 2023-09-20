@@ -4,22 +4,21 @@ import httpStatus from "http-status";
 import ApiError from "../../../errors/ApiError";
 import prisma from "../../../shared/prisma";
 import { IGenericResponse } from "../../../interfaces/common";
-import { ISemesterRegistrationFilterRequest } from "./semesterRegistration.interface";
+import { IEnrollCoursePayload, ISemesterRegistrationFilterRequest } from "./semesterRegistration.interface";
 import { IPaginationOptions } from "../../../interfaces/pagination";
 import { paginationHelpers } from "../../../helpers/paginationHelper";
 import { semesterRegistrationRelationalFields, semesterRegistrationRelationalFieldsMapper, semesterRegistrationSearchableFields } from "./semesterRegistration.constants";
-import auth from "../../middlewares/auth";
 
-const insertIntoDB =async(data:SemesterRegistration):Promise<SemesterRegistration > =>{
+const insertIntoDB = async (data: SemesterRegistration): Promise<SemesterRegistration> => {
 
-    const isAnySemesterRegUpcomingOrOngoing =await prisma.semesterRegistration.findFirst({
-        where:{
-            OR:[
+    const isAnySemesterRegUpcomingOrOngoing = await prisma.semesterRegistration.findFirst({
+        where: {
+            OR: [
                 {
-                    status:SemesterRegistrationStatus.UPCOMING
+                    status: SemesterRegistrationStatus.UPCOMING
                 },
                 {
-                    status:SemesterRegistrationStatus.ONGOING
+                    status: SemesterRegistrationStatus.ONGOING
                 }
             ]
         }
@@ -142,7 +141,7 @@ const updateOneInDB = async (
 ): Promise<SemesterRegistration> => {
 
     console.log(payload.status);
-    
+
     // check if the id exist or not
     const isExist = await prisma.semesterRegistration.findUnique({
         where: {
@@ -241,53 +240,97 @@ const startMyRegistration = async (authUserId: string): Promise<{
 };
 
 
-const enrollIntoCourse = async (authUserId: string,payload: {
-    offeredCourseId:string,
-    offeredCourseSectionId:string
-
-}) => {
+const enrollIntoCourse = async (authUserId: string, payload: IEnrollCoursePayload
+    // payload: {
+    // offeredCourseId:string,
+    // offeredCourseSectionId:string
+    // }
+) => {
     // console.log(authUserId,payload)
     // return studentSemesterRegistrationCourseService.enrollIntoCourse(authUserId, payload)
 
-   
-   const student =await prisma.student.findFirst({
-        where:{
-            studentId:authUserId
-        }
-    });
-    console.log(student);
-    
 
-    
-    const semesterRegistration=await prisma.semesterRegistration.findFirst({
-        where:{
-            status:SemesterRegistrationStatus.ONGOING
+    const student = await prisma.student.findFirst({
+        where: {
+            studentId: authUserId
         }
     });
-    console.log(semesterRegistration)
-    
-    if(!student){
-        throw new ApiError(httpStatus.BAD_REQUEST, "Student not found");
+    // console.log(student);
+
+    const semesterRegistration = await prisma.semesterRegistration.findFirst({
+        where: {
+            status: SemesterRegistrationStatus.ONGOING
+        }
+    });
+    // console.log(semesterRegistration);
+
+    const offeredCourse = await prisma.offeredCourse.findFirst({
+        where: {
+            id: payload.offeredCourseId
+        },
+        // include: {
+        //     course: true
+        // }
+    })
+
+    const offeredCourseSection = await prisma.offeredCourseSection.findFirst({
+        where: {
+            id: payload.offeredCourseSectionId
+        }
+    })
+
+    if (!student) {
+        throw new ApiError(httpStatus.NOT_FOUND, "Student not found");
     }
     if (!semesterRegistration) {
         throw new ApiError(httpStatus.NOT_FOUND, "Semester Registration not found!")
     }
 
-    const enrollCourse=await prisma.studentSemesterRegistrationCourse.create({
-        data:{
-            studentId:student?.id,
-            semesterRegistrationId:semesterRegistration?.id,
-            offeredCourseId:payload.offeredCourseId,
-            offeredCourseSectionId:payload.offeredCourseSectionId
-        }
-    })
-    return enrollCourse
-   
+    if (!offeredCourse) {
+        throw new ApiError(httpStatus.NOT_FOUND, "Offered Course not found!")
+    }
+    if (!offeredCourseSection) {
+        throw new ApiError(httpStatus.NOT_FOUND, "Offered Course Section not found!")
+    }
 
+    // const enrollCourse=await prisma.studentSemesterRegistrationCourse.create({
+    //     data:{
+    //         studentId:student?.id,
+    //         semesterRegistrationId:semesterRegistration?.id,
+    //         offeredCourseId:payload.offeredCourseId,
+    //         offeredCourseSectionId:payload.offeredCourseSectionId
+    //     }
+    // })
+    // return enrollCourse
+
+    await prisma.$transaction(async (transactionClient) => {
+        await transactionClient.studentSemesterRegistrationCourse.create({
+            data: {
+                studentId: student?.id,
+                semesterRegistrationId: semesterRegistration?.id,
+                offeredCourseId: payload.offeredCourseId,
+                offeredCourseSectionId: payload.offeredCourseSectionId
+            }
+        });
+
+        await transactionClient.offeredCourseSection.update({
+            where: {
+                id: payload.offeredCourseSectionId
+            },
+            data: {
+                currentlyEnrolledStudent: {
+                    increment: 1
+                }
+            }
+        });
+
+    });
+
+    return {};
 
 }
 
-export const SemesterRegistrationService={
+export const SemesterRegistrationService = {
     insertIntoDB,
     getAllFromDB,
     getByIdFromDB,

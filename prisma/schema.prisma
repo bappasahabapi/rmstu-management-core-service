@@ -74,7 +74,7 @@ model Student {
   academicFacultyId                 String
   academicFaculty                   AcademicFaculty                     @relation(fields: [academicFacultyId], references: [id])
   studentSemesterRegistrations      StudentSemesterRegistration[]
-  StudentSemesterRegistrationCourse StudentSemesterRegistrationCourse[]
+  studentSemesterRegistrationCourses StudentSemesterRegistrationCourse[]
 
   @@map("students")
 }
