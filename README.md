@@ -7,6 +7,7 @@ This guide will walk you through the process of setting up the RMSTU Management 
 
 #### 🪸 Branches
 
+-   26 👍 [Student Registration Course Model Enroll-Withdraw](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/26/c6/enroll-withdraw) 
 -   25 👍 [Student Registration Course Model](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/25/c6/Student-Registration-Course-Model) 
 ---
 -   24 🌵 [**Core-5**](https://github.com/bappasahabapi/rmstu-management-core-service/tree/rmstu/24m39/core-5) 
