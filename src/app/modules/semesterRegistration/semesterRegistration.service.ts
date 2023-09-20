@@ -8,6 +8,7 @@ import { ISemesterRegistrationFilterRequest } from "./semesterRegistration.inter
 import { IPaginationOptions } from "../../../interfaces/pagination";
 import { paginationHelpers } from "../../../helpers/paginationHelper";
 import { semesterRegistrationRelationalFields, semesterRegistrationRelationalFieldsMapper, semesterRegistrationSearchableFields } from "./semesterRegistration.constants";
+import auth from "../../middlewares/auth";
 
 const insertIntoDB =async(data:SemesterRegistration):Promise<SemesterRegistration > =>{
 
@@ -237,6 +238,53 @@ const startMyRegistration = async (authUserId: string): Promise<{
         semesterRegistration: semesterRegistrationInfo,
         studentSemesterRegistration: studentRegistration
     }
+};
+
+
+const enrollIntoCourse = async (authUserId: string,payload: {
+    offeredCourseId:string,
+    offeredCourseSectionId:string
+
+}) => {
+    // console.log(authUserId,payload)
+    // return studentSemesterRegistrationCourseService.enrollIntoCourse(authUserId, payload)
+
+   
+   const student =await prisma.student.findFirst({
+        where:{
+            studentId:authUserId
+        }
+    });
+    console.log(student);
+    
+
+    
+    const semesterRegistration=await prisma.semesterRegistration.findFirst({
+        where:{
+            status:SemesterRegistrationStatus.ONGOING
+        }
+    });
+    console.log(semesterRegistration)
+    
+    if(!student){
+        throw new ApiError(httpStatus.BAD_REQUEST, "Student not found");
+    }
+    if (!semesterRegistration) {
+        throw new ApiError(httpStatus.NOT_FOUND, "Semester Registration not found!")
+    }
+
+    const enrollCourse=await prisma.studentSemesterRegistrationCourse.create({
+        data:{
+            studentId:student?.id,
+            semesterRegistrationId:semesterRegistration?.id,
+            offeredCourseId:payload.offeredCourseId,
+            offeredCourseSectionId:payload.offeredCourseSectionId
+        }
+    })
+    return enrollCourse
+   
+
+
 }
 
 export const SemesterRegistrationService={
@@ -245,5 +293,6 @@ export const SemesterRegistrationService={
     getByIdFromDB,
     deleteByIdFromDB,
     updateOneInDB,
-    startMyRegistration
+    startMyRegistration,
+    enrollIntoCourse
 }
