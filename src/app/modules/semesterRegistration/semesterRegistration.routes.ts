@@ -37,6 +37,12 @@ router.post(
     SemesterRegistrationController.startMyRegistration
 );
 
+router.post(
+    '/confirm-my-regiatistron',
+    // auth(ENUM_USER_ROLE.STUDENT),
+    SemesterRegistrationController.confirmMyRegistration
+)
+
 
 router.post(
     '/enroll-into-course',

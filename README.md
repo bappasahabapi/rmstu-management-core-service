@@ -46,7 +46,9 @@ This guide will walk you through the process of setting up the RMSTU Management 
 ###    📊 Core-6
 ![My Image](./ER-Diagram/c6.png)
 
-<!-- ###    📊 Core-5
+<!-- 
+
+###    📊 Core-5
 ![My Image](./ER-Diagram/c5.png)
 ###    📊 Core-4
 ![My Image](./ER-Diagram/c4.png)
@@ -59,8 +61,9 @@ This guide will walk you through the process of setting up the RMSTU Management 
 
 
 ###    📊 Core-1
-![My Image](./ER-Diagram/c1.png) -->
+![My Image](./ER-Diagram/c1.png)
 
+ -->
 
 
 

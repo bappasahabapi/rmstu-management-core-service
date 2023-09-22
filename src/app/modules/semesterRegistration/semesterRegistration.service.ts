@@ -249,6 +249,69 @@ const withdrewFromCourse = async (authUserId: string, payload: IEnrollCoursePayl
     return studentSemesterRegistrationCourseService.withdrewFromCourse(authUserId,payload)
 };
 
+//todo: ----------------- Confirm my registration ---------------------
+
+const confirmMyRegistration = async (authUserId: string): Promise<{ message: string }> => {
+
+    const semesterRegistration = await prisma.semesterRegistration.findFirst({
+        where: {
+            status: SemesterRegistrationStatus.ONGOING
+        }
+    });
+
+    // 3 - 6
+    const studentSemesterRegistration = await prisma.studentSemesterRegistration.findFirst({
+        where: {
+            semesterRegistration: {
+                id: semesterRegistration?.id
+            },
+            student: {
+                studentId: authUserId
+            }
+        }
+    });
+
+    // console.log(semesterRegistration);
+    // console.log(studentSemesterRegistration);
+
+    if (!studentSemesterRegistration) {
+        throw new ApiError(httpStatus.BAD_REQUEST, "You are not recognized for this semester!")
+    }
+
+    if (studentSemesterRegistration.totalCreditsTaken === 0) {
+        throw new ApiError(httpStatus.BAD_REQUEST, "You are not enrolled in any course!")
+    }
+
+    //tct   = 3
+    //min c =3
+    //max c =6
+    //tct <min c || tct > max c
+    if (
+        studentSemesterRegistration.totalCreditsTaken &&
+        semesterRegistration?.minCredit &&
+        semesterRegistration.maxCredit &&
+        //tct <min c || tct > max c
+        (studentSemesterRegistration.totalCreditsTaken < semesterRegistration?.minCredit ||
+            studentSemesterRegistration.totalCreditsTaken > semesterRegistration?.maxCredit)
+    ) {
+        throw new ApiError(httpStatus.BAD_REQUEST, `You can take only ${semesterRegistration.minCredit} to ${semesterRegistration.maxCredit} credits`)
+    }
+
+    //if all condition satisfied then we update the status true.
+    await prisma.studentSemesterRegistration.update({
+        where: {
+            id: studentSemesterRegistration.id
+        },
+        data: {
+            isConfirmed: true
+        }
+    })
+    return {
+        message: "Your registration is confirmed!"
+    }
+
+};
+
 export const SemesterRegistrationService = {
     insertIntoDB,
     getAllFromDB,
@@ -257,5 +320,6 @@ export const SemesterRegistrationService = {
     updateOneInDB,
     startMyRegistration,
     enrollIntoCourse,
-    withdrewFromCourse
+    withdrewFromCourse,
+    confirmMyRegistration
 }
