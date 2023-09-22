@@ -46,7 +46,7 @@ This guide will walk you through the process of setting up the RMSTU Management 
 
 ###    📊 Core-6
 
-![My Image](./ER-Diagram/c6.png)
+![My Image](./er-diagram/c6.png)
 
 
 
