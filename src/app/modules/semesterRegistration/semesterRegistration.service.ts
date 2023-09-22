@@ -303,6 +303,14 @@ const enrollIntoCourse = async (authUserId: string, payload: IEnrollCoursePayloa
     // })
     // return enrollCourse
 
+    if (
+        offeredCourseSection.maxCapacity &&
+        offeredCourseSection.currentlyEnrolledStudent &&
+        offeredCourseSection.currentlyEnrolledStudent >= offeredCourseSection.maxCapacity
+    ) {
+        throw new ApiError(httpStatus.BAD_REQUEST, "Student capacity is full!")
+    }
+
     await prisma.$transaction(async (transactionClient) => {
         await transactionClient.studentSemesterRegistrationCourse.create({
             data: {
