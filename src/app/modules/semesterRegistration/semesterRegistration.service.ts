@@ -268,9 +268,9 @@ const enrollIntoCourse = async (authUserId: string, payload: IEnrollCoursePayloa
         where: {
             id: payload.offeredCourseId
         },
-        // include: {
-        //     course: true
-        // }
+        include: {
+            course: true
+        }
     })
 
     const offeredCourseSection = await prisma.offeredCourseSection.findFirst({
@@ -332,9 +332,28 @@ const enrollIntoCourse = async (authUserId: string, payload: IEnrollCoursePayloa
             }
         });
 
+
+        await transactionClient.studentSemesterRegistration.updateMany({
+            where: {
+                student: {
+                    id: student.id
+                },
+                semesterRegistration: {
+                    id: semesterRegistration.id
+                }
+            },
+            data: {
+                totalCreditsTaken: {
+                    increment: offeredCourse.course.credits
+                }
+            }
+        })
+
     });
 
-    return {};
+    return {
+        message: "Successfully enrolled into course"
+    };
 
 }
 
